@@ -9,7 +9,7 @@
       Title="Page1" Background="#CAF0F8">
 
 
-    <Grid>
+    <Grid x:Name="mainPanel">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
@@ -30,11 +30,27 @@
 
             </Border>
 
-            <Button Cursor="Hand" Grid.Column="1" Background="White" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Right" Style="{DynamicResource AddNewProductStyle}" Width="200" Height="40"  Margin="80 0 0 0"   Content="اضافة سلعة جديدة"></Button>
+            <Button Cursor="Hand" Grid.Column="1" Background="White" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Right" Style="{DynamicResource AddNewProductStyle}" Width="200" Height="40"  Margin="80 0 0 0"   Content="اضافة سلعة جديدة" Click="Button_Click"></Button>
         </Grid>
         
-        <DataGrid Style="{DynamicResource CustomDataGrid}" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"  x:Name="list" Grid.Row="1" IsReadOnly="True" AutoGenerateColumns="True"  CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" ItemsSource="{Binding humans}">
-            
+        <DataGrid ColumnHeaderHeight="60" RowHeight="40" Background="White"  HeadersVisibility="Column" Style="{DynamicResource CustomDataGrid}" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"  x:Name="list" Grid.Row="1" IsReadOnly="True" AutoGenerateColumns="False"  CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" ItemsSource="{Binding humans}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="اسم المنتوج" Binding="{Binding Path=ProductName}">
+                    
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="نوع المنتوج" Binding="{Binding Path=ProductType}" >
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="فئة المنتوج" Binding="{Binding Path=Model}">
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="سعر شراء المنتوج" Binding="{Binding Path=ProductBuyPrice}">
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="سعر بيع المنتوج" Binding="{Binding Path=ProductSellPrice}">
+
+                </DataGridTextColumn>
+            </DataGrid.Columns>
         </DataGrid>    
     </Grid>
 </Page>

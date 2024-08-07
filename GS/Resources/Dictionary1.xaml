@@ -2,13 +2,13 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 
-    <Style x:Key="baseStyleButton" TargetType="Button">
+    <Style x:Key="baseStyleButton" TargetType="RadioButton">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border CornerRadius="10" Background="{TemplateBinding Background}">
-                        <ContentPresenter   HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    
+                    <Border Cursor="Hand" CornerRadius="10" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -17,22 +17,13 @@
     </Style>
     
    
-    <Style x:Key="HoverButtonStyle" BasedOn="{StaticResource baseStyleButton}" TargetType="Button">
+    <Style x:Key="HoverButtonStyle" BasedOn="{StaticResource baseStyleButton}" TargetType="RadioButton">
    
        
         <Style.Triggers>
-            <EventTrigger RoutedEvent="Button.Click">
-                
-                <BeginStoryboard>
-                    <Storyboard>
-                        <DoubleAnimation Storyboard.TargetProperty="Width" To="150" Duration="0:0:0.3" AutoReverse="False"  />
-                        <DoubleAnimation Storyboard.TargetProperty="Height" To="90" Duration="0:0:0.3" AutoReverse="False"  />
-                        <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"  To="#57CC99" Duration="0:0:0.2" AutoReverse="False"></ColorAnimation>
-                        <ColorAnimation Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)" To="White" Duration="0:0:0.3" AutoReverse="False" />
+          
 
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
+            
             <Trigger Property="IsMouseOver"  Value="True">
                 
                 <Trigger.EnterActions>
@@ -62,7 +53,31 @@
 
             </Trigger>
 
-   
+            <Trigger Property="IsChecked" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Width" To="150" Duration="0:0:0.3" AutoReverse="False"  />
+                            <DoubleAnimation Storyboard.TargetProperty="Height" To="90" Duration="0:0:0.3" AutoReverse="False"  />
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)" To="White" Duration="0:0:0.3" AutoReverse="False" />
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"  To="#57CC99" Duration="0:0:0.2" AutoReverse="False"></ColorAnimation>
+
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Width" To="120" Duration="0:0:0.3" AutoReverse="False"  />
+                            <DoubleAnimation Storyboard.TargetProperty="Height" To="80" Duration="0:0:0.3" AutoReverse="False"  />
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"  To="White" Duration="0:0:0.2" AutoReverse="False"></ColorAnimation>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)" To="Black" Duration="0:0:0.3" AutoReverse="False" />
+
+
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
 
         </Style.Triggers>
     </Style>
@@ -106,12 +121,60 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    
+    
+    <Style x:Key="customColumlnHeader" TargetType="DataGridColumnHeader">
+        <Setter Property="Background" Value="#2196F3"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Margin" Value="0 0 0 10"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="BorderThickness" Value="0 0 0 3"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        
+    </Style>
+
+    <Style x:Key="customRow" TargetType="DataGridRow">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="0 1 0 0"/>
+       
+        <Style.Triggers >
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="AliceBlue"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="DataGridCell">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="0 1 0 0"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DataGridCell">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers >
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="#57CC99"/>
+                <Setter Property="BorderThickness" Value="0"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
     <Style x:Key="CustomDataGrid" TargetType="{x:Type DataGrid}">
         <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
         <Setter Property="BorderBrush" Value="black"/>
-        <Setter Property="BorderThickness" Value="1.5"/>
+        <Setter Property="BorderThickness" Value="1 1 1 1"/>
         <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
         <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
         <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
@@ -120,7 +183,8 @@
         <Setter Property="HorizontalGridLinesBrush" Value="Black"/>
         <Setter Property="VerticalGridLinesBrush" Value="Black"/>
         <Setter Property="RowHeight" Value="30"/>
-
+        <Setter Property="ColumnHeaderStyle" Value="{StaticResource customColumlnHeader}"/>
+        <Setter Property="RowStyle" Value="{DynamicResource customRow}"></Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DataGrid}">
@@ -129,6 +193,7 @@
                             <ScrollViewer.Template>
                                 <ControlTemplate TargetType="{x:Type ScrollViewer}">
                                     <Grid>
+                                        
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="*"/>
@@ -168,5 +233,40 @@
                 <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
             </MultiTrigger>
         </Style.Triggers>
+    </Style>
+
+
+    <Style x:Key="watermarkText" TargetType="TextBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border Padding="5" Background="White" CornerRadius="5" Width="{TemplateBinding Width}"  BorderBrush="White" BorderThickness="1" Height="{TemplateBinding Height}">
+                        <Grid VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" >
+
+                            <TextBlock Visibility="Hidden" Focusable="False" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center"  x:Name="watermark" Text="{TemplateBinding Tag}" Foreground="Gray">
+
+                            </TextBlock>
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                          Focusable="false"
+                                          HorizontalScrollBarVisibility="Hidden"
+                                          VerticalScrollBarVisibility="Hidden" />
+
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <Trigger  Property="Text" Value="">
+                            <Setter TargetName="watermark" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+
+                        <Trigger SourceName="PART_ContentHost" Property="IsKeyboardFocusWithin" Value="True">
+                            <Setter TargetName="watermark" Property="Visibility" Value="Hidden"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    
     </Style>
 </ResourceDictionary>

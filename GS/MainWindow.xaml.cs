@@ -15,7 +15,7 @@ namespace GS
     
     public partial class MainWindow : Window
     {
-        private Button lastCheckedButton=null;
+  
 
         public MainWindow()
         {
@@ -25,15 +25,9 @@ namespace GS
 
         private void  HandleClicks(object sender, RoutedEventArgs e)
         {
-            if(lastCheckedButton != null)
-            {
-                lastCheckedButton.Style = (Style)FindResource("NormalButtonStyle");
-            }
             
-            var buttonId = (Button)sender;
-            lastCheckedButton = buttonId;
-                
-            buttonId.Background = new SolidColorBrush(Color.FromRgb(202, 240, 248));
+            var buttonId = (RadioButton)sender;
+         
          
             if (buttonId.Name.Equals("products"))
             {

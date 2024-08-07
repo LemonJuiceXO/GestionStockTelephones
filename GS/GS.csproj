@@ -12,6 +12,7 @@
     <None Remove="Images\briefcase.png" />
     <None Remove="Images\customer.png" />
     <None Remove="Images\delivery-box.png" />
+    <None Remove="Images\ExitButton.png" />
     <None Remove="Images\magnifier.png" />
     <None Remove="Images\productsIcon.png" />
   </ItemGroup>
@@ -24,6 +25,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\delivery-box.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ExitButton.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\magnifier.png">

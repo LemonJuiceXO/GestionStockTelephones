@@ -37,31 +37,31 @@
                     </RowDefinition>
 
                 </Grid.RowDefinitions>
-                <Button  Click="HandleClicks" x:Name="products" Style="{DynamicResource HoverButtonStyle}" Grid.Row="0"  Background="white" BorderThickness="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="top" Height="80" Width="120" >
+                <RadioButton GroupName="nav"  Click="HandleClicks" x:Name="products" Style="{DynamicResource HoverButtonStyle}" Grid.Row="0"  Background="white" BorderThickness="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="top" Height="80" Width="120" >
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
                         <Image Source="/Images/productsIcon.png" Width="40" Height="40"></Image>
                         <TextBlock FontSize="15" FontWeight="Bold" Text="السلعة" Height="20" Width="auto"></TextBlock>
                     </StackPanel>
-                </Button>
+                </RadioButton>
 
-                <Button  Click="HandleClicks" x:Name="clients" Style="{DynamicResource HoverButtonStyle}" Grid.Row="1"  Background="white" BorderThickness="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Height="80" Width="120" >
+                <RadioButton GroupName="nav"  Click="HandleClicks" x:Name="clients" Style="{DynamicResource HoverButtonStyle}" Grid.Row="1"  Background="white" BorderThickness="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Height="80" Width="120" >
                     <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
                         <Image Margin="0 0 5 0" Source="/Images/customer.png" Width="35" Height="35"></Image>
                         <TextBlock FontSize="15" FontWeight="Bold" Height="20" Width="auto"><Run FlowDirection="RightToLeft" Language="ar-dz" Text="الزبائن"/></TextBlock>
                     </StackPanel>
-                </Button>
-                <Button  Click="HandleClicks" x:Name="suppliers" Style="{DynamicResource HoverButtonStyle}" Grid.Row="2" Background="white" BorderThickness="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Height="80" Width="120" >
+                </RadioButton>
+                <RadioButton GroupName="nav"  Click="HandleClicks" x:Name="suppliers" Style="{DynamicResource HoverButtonStyle}" Grid.Row="2" Background="white" BorderThickness="0"  HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" Height="80" Width="120" >
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
                         <Image Source="/Images/delivery-box.png" Width="40" Height="40"/>
                         <TextBlock FontSize="15" FontWeight="Bold" Height="20" Width="auto"><Run FlowDirection="RightToLeft" Language="ar-dz" Text="الموردين"/></TextBlock>
                     </StackPanel>
-                </Button>
-                <Button  Click="HandleClicks" x:Name="bank" Style="{DynamicResource HoverButtonStyle}" Grid.Row="3" Background="white" BorderThickness="0" Margin="5"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="80" Width="120" >
+                </RadioButton>
+                <RadioButton GroupName="nav"  Click="HandleClicks" x:Name="bank" Style="{DynamicResource HoverButtonStyle}" Grid.Row="3" Background="white" BorderThickness="0" Margin="5"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="80" Width="120" >
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
                         <Image Source="/Images/briefcase.png" Margin="0 0 5 0" Width="35" Height="35"/>
                         <TextBlock FontSize="15" FontWeight="Bold" Height="20" Width="auto"><Run FlowDirection="RightToLeft" Language="ar-dz" Text="الخزنة"/></TextBlock>
                     </StackPanel>
-                </Button>
+                </RadioButton>
 
             </Grid>
         </Border>

@@ -9,30 +9,40 @@ namespace GS.UI
 
     public partial class Page1 : Page
     {
-        private ObservableCollection<Page1Model> humans = new();
+        private ObservableCollection<ProductModel> products = new();
         public Page1()
         {
             InitializeComponent();
-            list.ItemsSource = humans;
-            humans.Add(new Page1Model()
-            {
-                name = "Name",
-                lastName = "Name",
-                age=15
-            });
-
-            humans.Add(new Page1Model()
-            {
-                name = "Namazedazde",
-                lastName = "Namqsdqsde",
-                age = 15
-            });
-
+            list.ItemsSource = products;
+       
             DataContext = this;
 
+            products.Add(new ProductModel()
+            {
+                ProductName = "Test",
+                ProductType="azeaz",
+                Model="adeqsd",
+                ProductSellPrice=1500,
+                ProductBuyPrice=80000
+            });
+
         }
+        public void itemAdded(ProductModel product)
+        {
+            products.Add(product);
+        }
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            AddItem add = new AddItem();
+            add.itemAdded += itemAdded;
+            Grid.SetColumnSpan(add, 2);
+            Grid.SetRowSpan(add, 2);
+            mainPanel.Children.Add(add);
 
-
-
+            add.ExitEvent += () =>
+            {
+                mainPanel.Children.Remove(add);
+            };
+        }
     }
 }

@@ -1,0 +1,39 @@
+﻿<StackPanel x:Class="GS.UI.AddItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GS.UI"
+        mc:Ignorable="d"
+
+        >
+    
+    <Border Height="300" Width="650" Margin="0 60 0 0" CornerRadius="10" Padding="10" Background="#D8000000" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+       
+        <Grid   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Button Click="ExitAddItem" Width="30" Height="30" Panel.ZIndex="1000" Background="Transparent" BorderThickness="0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Image Cursor="Hand" Source="/Images/ExitButton.png" 
+   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+    Grid.Row="0" Grid.Column="0"
+   />
+            </Button>
+
+            <TextBox Width="350"  Style="{DynamicResource watermarkText}"  Tag="اسم المنتوج"  x:Name="productName"  TextAlignment="Center"  Margin="5"/>
+            <TextBox Width="350" Style="{DynamicResource watermarkText}" Tag="نوع المنتوج" x:Name="productType"   TextAlignment="Center" Margin="5" Grid.Row="1"/>
+            <TextBox  Width="350" Style="{DynamicResource watermarkText}" Tag="فئة المنتوج" x:Name="productCat"   TextAlignment="Center" Margin="5" Grid.Row="2"/>
+            <TextBox  Width="350" Style="{DynamicResource watermarkText}" Tag="سعر الشراء" x:Name="buyPrice"  TextAlignment="Center" Margin="5" Grid.Row="3"/>
+            <TextBox Width="350" Style="{DynamicResource watermarkText}" Tag="سعر البيع" x:Name="sellPrice" TextAlignment="Center" Margin="5" Grid.Row="4"/>
+            <Button Margin="10" Style="{DynamicResource AddNewProductStyle}" Background="White" BorderThickness="1" BorderBrush="Black" Grid.Row="5" Width="100" Height="40" Cursor="Hand" Content="تأكيد" Click="Button_Click"/>
+        </Grid>
+    </Border>
+   
+</StackPanel>
