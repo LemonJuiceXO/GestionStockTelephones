@@ -17,14 +17,7 @@ namespace GS.UI
        
             DataContext = this;
 
-            products.Add(new ProductModel()
-            {
-                ProductName = "Test",
-                ProductType="azeaz",
-                Model="adeqsd",
-                ProductSellPrice=1500,
-                ProductBuyPrice=80000
-            });
+           
 
         }
         public void itemAdded(ProductModel product)
