@@ -9,33 +9,48 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\briefcase.png" />
     <None Remove="Images\customer.png" />
+    <None Remove="Images\delete.png" />
     <None Remove="Images\delivery-box.png" />
     <None Remove="Images\ExitButton.png" />
+    <None Remove="Images\graph.png" />
     <None Remove="Images\magnifier.png" />
     <None Remove="Images\productsIcon.png" />
+    <None Remove="Images\update.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Images\briefcase.png">
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\briefcase.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\customer.png">
+    </Resource>
+    <Resource Include="Images\customer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\delivery-box.png">
+    </Resource>
+    <Resource Include="Images\delete.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\ExitButton.png">
+    </Resource>
+    <Resource Include="Images\delivery-box.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\magnifier.png">
+    </Resource>
+    <Resource Include="Images\ExitButton.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\productsIcon.png">
+    </Resource>
+    <Resource Include="Images\graph.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Resource>
+    <Resource Include="Images\magnifier.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\update.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\productsIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

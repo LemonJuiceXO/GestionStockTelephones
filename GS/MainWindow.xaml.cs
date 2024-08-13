@@ -20,7 +20,7 @@ namespace GS
         public MainWindow()
         {
             InitializeComponent();
-            LoadPage("UI/Page1.xaml");
+            LoadPage("UI/ProductsPage.xaml");
         }
 
         private void  HandleClicks(object sender, RoutedEventArgs e)
@@ -31,6 +31,19 @@ namespace GS
          
             if (buttonId.Name.Equals("products"))
             {
+                LoadPage("UI/ProductsPage.xaml");
+            }
+            else if (buttonId.Name.Equals("clients"))
+            {
+                LoadPage("UI/ClientsPage.xaml");
+            }
+            else if(buttonId.Name.Equals("stats"))
+            {
+                LoadPage("UI/StatisticsPage.xaml");
+            }
+            else if (buttonId.Name.Equals("suppliers"))
+            {
+                LoadPage("UI/SuppliersPage.xaml");
 
             }
 
